@@ -1,0 +1,130 @@
+html, body{
+  margin: 0px;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5em;
+  text-align: center;
+  color: white;
+}
+
+#stockInput, .fieldname{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: white;
+  border-width: 2px;
+  background: none;
+  color: white;
+  font-size: 20pt;
+
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+
+}
+
+.fieldname{
+  margin-top: 20px;
+  text-align: left;
+  width: 300px;
+  margin-right: 25px;
+  padding-left: 10px;
+}
+
+#stockInput{
+  text-align: center;
+  width: 370px;
+}
+
+  #stockInput:focus, .fieldname:focus {
+    outline: none;
+    border: none;
+    padding-bottom: 3px;
+  }
+
+  fieldset {
+      display: block;
+      margin-left: 2px;
+      margin-right: 2px;
+      padding-top: 0.35em;
+      padding-bottom: 0.625em;
+      padding-left: 0.75em;
+      padding-right: 0.75em;
+      border: none;
+  }
+
+  #addStock, #removeStock, #addStock:focus{
+    outline: none;
+    border: 2px solid white;
+    background: none;
+    width: 40px;
+    height: 40px;
+    color: white;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 15pt;
+  }
+
+  #addStock{
+    padding-top: 2px;
+  }
+  #removeStock{
+    padding-bottom: 5px;
+  }
+
+  #addStock:hover, #removeStock:hover, #stockSubmit:hover, #stockClear:hover{
+    background: white;
+    color: #1fc8db;
+  }
+
+  #stockSubmit, #stockClear{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    margin-left: 10px;
+    outline: none;
+    border: 2px solid white;
+    background: none;
+    width: 150px;
+    height: 40px;
+    color: white;
+    border-radius: 20px;
+    font-weight: 400;
+    font-size: 15pt;
+}
+
+h3{
+  font-weight: 400;
+}
+
+h2{
+  text-align: center;
+}
+
+p{
+  text-align: center;
+}
+
+#stockResults{
+  margin: auto;
+  width: 365px;
+  text-align: center;
+  display: inline-inline-block;
+  margin-bottom: 30px;
+}
+
+.content {
+  min-height: 100%;
+}
+.content-inside {
+  padding: 20px;
+  padding-bottom: 70px;
+}
+.footer {
+  background: linear-gradient(to top, #067aa5, rgba(26, 122, 165, 0.20),  rgba(6, 122, 165, 0));
+  height: 70px;
+  margin-top: -87px;
+}
