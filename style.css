@@ -30,7 +30,7 @@ html, body{
 .fieldname{
   margin-top: 20px;
   text-align: left;
-  width: 300px;
+  width: 320px;
   margin-right: 25px;
   padding-left: 10px;
 }
@@ -56,8 +56,13 @@ html, body{
       padding-right: 0.75em;
       border: none;
   }
+.fieldname{
+  padding-top: 0px;
+  margin-top: 5px;
+  font-size: 15pt;
+}
 
-  #addStock, #removeStock, #addStock:focus{
+  #addStock, #addStock:focus{
     outline: none;
     border: 2px solid white;
     background: none;
@@ -69,12 +74,29 @@ html, body{
     font-size: 15pt;
   }
 
+  #removeStock{
+    outline: none;
+    border: 2px solid white;
+    background: none;
+    width: 20px;
+    height: 20px;
+    color: white;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 15pt;
+    padding: 0px;
+    padding-left: 4.5px;
+    line-height: 10px;
+    display: inline-flex;
+    align-items: center;
+    padding-bottom: 3px;
+
+  }
+
   #addStock{
     padding-top: 2px;
   }
-  #removeStock{
-    padding-bottom: 5px;
-  }
+
 
   #addStock:hover, #removeStock:hover, #stockSubmit:hover, #stockClear:hover{
     background: white;
@@ -102,6 +124,8 @@ h3{
 
 h2{
   text-align: center;
+  margin-bottom: 5px;
+  margin-top: 10px;
 }
 
 p{
@@ -113,18 +137,29 @@ p{
   width: 365px;
   text-align: center;
   display: inline-inline-block;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .content {
   min-height: 100%;
+  padding:0px;
+  margin: 0px;
 }
 .content-inside {
   padding: 20px;
-  padding-bottom: 70px;
+  padding-bottom: 80px;
 }
 .footer {
-  background: linear-gradient(to top, #067aa5, rgba(26, 122, 165, 0.20),  rgba(6, 122, 165, 0));
-  height: 70px;
-  margin-top: -87px;
+  background: linear-gradient(to top, rgba(26, 122, 165, 1), rgba(26, 122, 165, 0.50), rgba(26, 122, 165, 0.20),  rgba(6, 122, 165, 0));
+  height: 80px;
+  margin-top: -96px;
+}
+
+#buildyourform{
+  padding-bottom: 0px;
+  margin: 0px;
+}
+p#warn{
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }

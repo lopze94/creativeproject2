@@ -5,7 +5,7 @@ $('#addStock').click(function(e) {
   //Get input field value
   var tempVal = $('#stockInput').val();
   if (tempVal !== "") {
-    console.log("Value" + numberOfFields + ": \"" + tempVal + "\"");
+    //console.log("Value" + numberOfFields + ": \"" + tempVal + "\"");
     var currHTML = $('#inputFields').html();
     var newField = "<input id=\"stockInput" + numberOfFields + "\" type=\"text\" class=\"stockText\" value=\"" + tempVal + "\"></input>\n";
     var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
@@ -21,7 +21,7 @@ $('#addStock').click(function(e) {
     numberOfFields++;
     $('#stockInput').val("");
   } else {
-    console.log("Input field is empty");
+    //console.log("Input field is empty");
     return 0;
   }
 
@@ -39,8 +39,6 @@ $(document).keypress(function(e) {
   }
 });
 
-
-
 $("#addStock").click(function(e) {
   e.preventDefault();
   checkEmpty();
@@ -52,6 +50,8 @@ $("#stockClear").click(function(e) {
   $("#yourform").remove();
   $("#buildyourform").html("<legend>Stock Symbols Added</legend>");
   $("#buildyourform").hide();
+  $("#stockResults").html('');
+
 });
 
 function checkEmpty(tempSymbol) {
@@ -63,7 +63,7 @@ function checkEmpty(tempSymbol) {
     $("#buildyourform").append('<p id=\"warn\">Submit to get results (ctrl + Enter)</p>');
     $("#stockInput").val('');
   } else {
-    console.log("Input field is empty");
+    //console.log("Input field is empty");
   }
 }
 
@@ -89,6 +89,7 @@ $('#stockInput').keydown(function(e) {
   if (e.ctrlKey && e.keyCode == 13) {
     // Ctrl-Enter pressed
     submitStocks();
+
   }
 });
 
@@ -97,28 +98,32 @@ $('#stockInput').keydown(function(e) {
 $("#stockSubmit").click(function(e) {
   e.preventDefault();
   submitStocks();
+
 });
 
 function submitStocks() {
   var stocksArray = [];
   $("#yourform").remove();
-
   var fieldSet = $("<fieldset id=\"yourform\"><legend>Your Stock Symbols</legend></fieldset>");
   $("#buildyourform div").each(function() {
     var id = "input" + $(this).attr("id").replace("field", "");
+    //console.log(id);
+    //console.log($(this));
     var str = $(this).find("input.fieldname").first().val();
+    //console.log(str);
     var label = "";
-    if (str !== "") {
+    if (str !== "" || str != typeof undefined) {
       stocksArray.push(str);
+      //console.log("Pushed " +str);
       label = $("<label for=\"" + id + "\"><h2>" + str + "</h2></label><br>");
     } else {
       $(this).find("input.fieldname").first().parent().remove();
-      console.log("Input field is empty");
+      //console.log("Input field is empty");
     }
-    //    fieldSet.append(label);
+    //   fieldSet.append(label);
   });
   //  $("body").append(fieldSet);
-  console.log(stocksArray);
+  //console.log(stocksArray);
   stockAPI(stocksArray);
 }
 
@@ -138,7 +143,7 @@ function stockAPI(stocksArray) {
     url: myurl,
     dataType: "json",
     success: function(json) {
-      console.log(json);
+      //console.log(json);
       var pWarn = 'Price refers to the 15 minute delayed market price';
       $("#warn").remove();
       $("#buildyourform").append('<p id=\"warn\">' + pWarn + '</p>');
@@ -147,7 +152,7 @@ function stockAPI(stocksArray) {
         var tempName = stocksArray[i];
         var toStr = tempName.toString();
         var toUpper = toStr.toUpperCase();
-        console.log('UPPER: ' + toUpper);
+        //console.log('UPPER: ' + toUpper);
         var compName = json[toUpper].quote.companyName;
         var openPrice = json[toUpper].quote.close;
         var closePrice = json[toUpper].quote.open;
@@ -158,8 +163,10 @@ function stockAPI(stocksArray) {
         results += openPrice + '</div><div class=\"closeP\">CLOSE&emsp;&emsp;&emsp;USD&emsp;&emsp;&emsp;';
         results += closePrice + '</div><div class=\"price\">&nbspPRICE&emsp;&emsp;&emsp;USD&emsp;&emsp;&emsp;' + delPrice + '</div>\n';
         $("#stockResults").append(results);
+
       }
-      $("#stockResults").append('\n</div>');
+    //  $("#stockResults").append('\n</div>');
+
     }
   });
 }
